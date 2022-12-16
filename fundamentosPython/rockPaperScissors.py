@@ -8,7 +8,7 @@ para seleccionar una opcion tener en cuenta:
 3 - Tijeras
 """)
 userOption = int(input("Escoge una opcion: entre el 1 y el 3: "))
-computerOpcion = random.randint(1, 3)
+computerOpcion = random.randint(1, 3) #para strings se usa: choice
 
 if userOption == computerOpcion:
     print("Empate!")

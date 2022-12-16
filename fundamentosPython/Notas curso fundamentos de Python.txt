@@ -1,0 +1,13 @@
+variable.upper() = texto en mayuscula
+variable.capitalize() = Primera letra en mayuscula
+variable.strip() = eliminar espacios
+variable.lower() = texto en minuscula
+variable.replace('o', 'a') = reemplazar o por la a
+variable.count("a") = para ver cuantas repiticones hay en un caracter
+variable.swapcase() = para convertir el texto de mayuscula a minusculo y al contrario
+variable.startswith("Ella") = respuesta booleana si el texto inicia con lo pedido
+variable.endswith("Rust") = respuesta booleana si el texto finaliza por lo pedido
+variable.title() = primera palabra del tezto en mayuscula
+variable.isdigit() = respuesta booleana que identifica si es un digito, no iporta si es un string
+variable[0]
+len(variable) = para saber cuantos caracteres tiene

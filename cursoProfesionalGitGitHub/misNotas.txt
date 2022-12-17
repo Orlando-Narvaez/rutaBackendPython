@@ -1,0 +1,299 @@
+git init:
+    Crea la carpeta .git/ para iniciar el repositorio.
+    Ojo, solo tomará en cuenta los archivos y directorios que compartan el mismo directorio que la carpeta .git/
+
+git add:
+    Agrega los archivos que indiques a continuación al area de staging.
+    Puedes indicar archivos puntuales, o incluso carpetas.
+
+    Escritura:
+    Git add + archivos
+
+
+Git commit:
+    Crea una nueva versión en el repositorio con todos los cambios guardados en el area de staging.
+    Ojo, si no agregas un mensaje con “-m”, entonces la terminal te enviará a vim o a nano para escribir el mensaje.
+
+    Escritura:
+    Git commit
+
+    Extensiones:
+    “-m” + mensaje: agrega un mensaje al commit sin necesidad de ir a nano ni a vim.
+    “-a”: envía todos los cambios en el directorio local al area de staging y procede con un commit, todo en el mismo comando.
+    “–amend”: Anexa todos los cambios en staging al commit anterior. Tambien te permite cambiar el mensaje del commit anterior. 
+    (ojo, no se combina con la extensión “-a”. Asegurate de hacer git add antes de este commit. Este se usa para emergencias, cuando 
+    enviaste un commit por accidente sin incluir cambios importantes).
+    Ojo, solo funciona con los archivos que previamente hayan recibido un git add. Esta extensión no incluye archivos nuevos.
+
+Git config:
+    Te permite hacer configuraciones a git.
+    Puedes hacer cambios solo al repositorio local donde estes parado, o a todos los repositorios actuales y futuros con la 
+    extensión “–global”
+
+    Ojo, si lo usas sin extensión ni parametros, este solo mostrará una lista con las extensiones disponibles para uso.
+
+    Escritura:
+    Git config + configuración
+
+    Extensiones:
+    “–list”: muestra la lista de configuraciones ya establecidas.
+    “–global”: permite hacer cambios de configuración globales que se apliquen a todos los directorios en el futuro.
+
+git status:
+    Muestra el estatus actual del repositorio donde estas parado en la terminal.
+
+    Especificamente muestra:
+    La rama donde estas parado
+    Los cambios en archivos que aún no estan en Staging area.
+    Los archivos nuevos que aún no estan en Staging area.
+    Los archivos borrados que aún no han sido reportados al Staging area para sacarlos del siguiente commit.
+
+    Escritura:
+    Git status
+
+Git log:
+    Muestra el historial de commits en la rama actual, incluidos sus hash (los id de cada commit) y sus tags.
+    Ojo, se pueden aplicar filtros al log. Puedes leer el man git log para verlos.
+
+    Escritura:
+    Git log + extensiones
+
+    Extensiones:
+    “–stat”: muestra en detalle los cambios ocurridos en cada archivo tras cada commit.
+    “–all”: Muestra todos los commits que han ocurrido. Esto ayuda porque en ocasiones git log no muestra todo dependiendo 
+    de que branches han ocurrido.
+    “–graph” muestra de forma grafica con “/” “|” “” el flujo de trabajo con las ramas a lo largo del proyecto
+    “–oneline” muestra solo una línea por cada commit. Útil para un seguimiento puntual a la historia de un proyecto largo.
+    “–decorate” muestra los nombres de las ramas en el lugar donde terminan. (git log está configurado por defecto en 
+    --decorate=short; pero tambien está =no, =full y =auto)
+    “-S” + Termino entre comillas: busca los commits donde el termino que indiques fue relevante.
+
+Git rm:
+    Al igual que el comando rm, borra el archivo que indiques a continuación tanto del directorio local como de la base de datos de git.
+    Su nombre queda registrado en los commits, pero su información quedará borrada. Ya no podrás acceder a él ni con un checkout.
+
+    Ojo, no funciona sin una extensión.
+
+    Escritura:
+    Git rm + extensión + archivos
+
+    Extensiones:
+    “–cached”: borra el archivo del directorio local y del repositorio, pero conserva la versión que esté actualmente guardada 
+    en el staging area (si es que hay una).
+    “-f” o “–force”: borra todo lo relacionado al archivo (excepto el recuerdo de su existencia en los git log).
+
+Git diff:
+    Compara dos versiones y los cambios que ocurrieron desde la primera hasta la segunda.
+    Ojo, git diff analizará tomando la primera versión que escribas como punto de partida. Asi que atento al orden en el que escribes 
+    las versiones (primero la mas vieja, segundo la mas nueva).
+
+    Ojo, puedes usar HEAD en lugar del tag para referirte al HEAD.
+
+    Escritura:
+    Git diff + tag version vieja + tag versión nueva
+
+¿Qué es el staging?:
+    El staging es el lugar donde se guardan temporalmente los cambios, para luego ser llevados definitivamente al repositorio. 
+    El repositorio es el lugar donde se guardan todos los registros de los cambios realizados a los archivos.
+
+¿Qué es branch (rama) y cómo funciona un Merge en Git?:
+    Una rama o branch es una versión del código del proyecto sobre el que estás trabajando. Estas ramas ayudan a mantener 
+    el orden en el control de versiones y manipular el código de forma segura.
+    
+    En otras palabras, un branch o rama en Git es una rama que proviene de otra. Imagina un árbol, que tiene una rama gruesa, 
+    y otra más fina, en la rama más gruesa tenemos los commits principales y en la rama fina tenemos otros commits que pueden 
+    ser de hotfix, devlopment entre otros.
+
+Clases de branches o ramas en Git:
+    Estas son las ramas base de un proyecto en Git:
+
+        1. Rama main (Master):
+            Por defecto, el proyecto se crea en una rama llamada Main (anteriormente conocida como Master). Cada vez que añades 
+            código y guardas los cambios, estás haciendo un commit, que es añadir el nuevo código a una rama. Esto genera nuevas 
+            versiones de esta rama o branch, hasta llegar a la versión actual de la rama Main.
+
+        2. Rama development:
+            Cuando decides hacer experimentos, puedes generar ramas experimentales (usualmente llamadas development), que están 
+            basadas en alguna rama main, pero sobre las cuales puedes hacer cambios a tu gusto sin necesidad de afectar 
+            directamente al código principal.
+
+        3. Rama hotfix:
+            En otros casos, si encuentras un bug o error de código en la rama Main (que afecta al proyecto en producción), 
+            tendrás que crear una nueva rama (que usualmente se llaman bug fixing o hot fix) para hacer los arreglos necesarios. 
+            Cuando los cambios estén listos, los tendrás que fusionar con la rama Main para que los cambios sean aplicados. 
+            Para esto, se usa un comando llamado Merge, que mezcla los cambios de la rama que originaste a la rama Main.
+
+            Todos los commits se aplican sobre una rama. Por defecto, siempre empezamos en la rama Main (pero puedes cambiarle 
+            el nombre si no te gusta) y generamos nuevas ramas, a partir de esta, para crear flujos de trabajo independientes.
+
+Cómo crear un branch o rama en Git:
+    El comando git branch permite crear una rama nueva. Si quieres empezar a trabajar en una nueva función, puedes crear una 
+    rama nueva a partir de la rama master con git branch new_branch. Una vez creada, puedes usar git checkout new_branch 
+    para cambiar a esa rama.
+    Recuerda que todas tus versiones salen de la rama principal o Master y de allí puedes tomar una versión específica para 
+    crear otra rama de versiones.
+
+Cómo hacer merge:
+    Producir una nueva rama se conoce como Checkout. Unir dos ramas lo conocemos como Merge.
+    Cuando haces merge de estas ramas con el código principal, su código se fusiona originando una nueva versión de la rama master (o main) 
+    que ya tiene todos los cambios que aplicaste en tus experimentos o arreglos de errores.
+    Podemos generar todas las ramas y commits que queramos. De hecho, podemos aprovechar el registro de cambios de Git para producir 
+    ramas, traer versiones viejas del código, arreglarlas y combinarlas de nuevo para mejorar el proyecto.
+
+    Solo ten en cuenta que combinar estas ramas (hacer “merge”) puede generar conflictos. Algunos archivos pueden ser 
+    diferentes en ambas ramas. Git es muy inteligente y puede intentar unir estos cambios automáticamente, pero no siempre funciona. 
+    En algunos casos, somos nosotros los que debemos resolver estos conflictos a mano.
+
+Volver en el tiempo en nuestro repositorio utilizando reset y checkout:
+    El comando git checkout + ID del commit nos permite viajar en el tiempo. 
+    Podemos volver a cualquier versión anterior de un archivo específico o incluso del proyecto entero. 
+    Esta también es la forma de crear ramas y movernos entre ellas.
+
+    También hay una forma de hacerlo un poco más “ruda”: usando el comando git reset. En este caso, 
+    no solo “volvemos en el tiempo”, sino que borramos los cambios que hicimos después de este commit.
+
+    Hay dos formas de usar git reset: con el argumento --hard, borrando toda la información que 
+    tengamos en el área de staging (y perdiendo todo para siempre). O, un poco más seguro, con el argumento --soft, 
+    que mantiene allí los archivos del área de staging para que podamos aplicar nuestros últimos cambios pero desde un commit anterior.
+
+Cómo usar Git Reset:
+    Para volver a commits previos, borrando los cambios realizados desde ese commit, podemos utilizar:
+
+    git reset --soft [SHA 1]: elimina los cambios hasta el staging area
+    git reset --mixed [SHA 1]: elimina los cambios hasta el working area
+    git reset --hard [SHA 1]: regresa hasta el commit del [SHA-1]
+    Donde el SHA-1 es el identificador del commit
+
+Git reset vs. Git rm:
+    Git reset y git rm son comandos con utilidades muy diferentes, pero se pueden confundir muy fácilmente.
+
+    git rm:
+        Este comando nos ayuda a eliminar archivos de Git sin eliminar su historial del sistema de versiones. 
+        Esto quiere decir que si necesitamos recuperar el archivo solo debemos “viajar en el tiempo” y recuperar el último commit 
+        antes de borrar el archivo en cuestión.
+
+        Recuerda que git rm no puede usarse así nomás. Debemos usar uno de los flags para indicarle a Git cómo eliminar los archivos 
+        que ya no necesitamos en la última versión del proyecto:
+
+            git rm --cached: Elimina los archivos de nuestro repositorio local y del área de staging, pero los mantiene en nuestro disco duro. 
+            Básicamente le dice a Git que deje de trackear el historial de cambios de estos archivos, por lo que pasaran a un estado untracked.
+            git rm --force: Elimina los archivos de Git y del disco duro. Git siempre guarda todo, por lo que podemos acceder al registro de la 
+            existencia de los archivos, de modo que podremos recuperarlos si es necesario (pero debemos usar comandos más avanzados).
+
+    git reset:
+        Este comando nos ayuda a volver en el tiempo. Pero no como git checkout que nos deja ir, mirar, pasear y volver. 
+        Con git reset volvemos al pasado sin la posibilidad de volver al futuro. Borramos la historia y la debemos sobreescribir. 
+        No hay vuelta atrás.
+
+        Este comando es muy peligroso y debemos emplearlo solo en caso de emergencia. Recuerda que debemos usar alguna de estas dos opciones:
+
+            Hay dos formas de utilizar git reset: con el argumento --hard, borrando toda la información que tengamos en el área de 
+            staging (y perdiendo todo para siempre). O, un poco más seguro, con el argumento --soft, que mantiene allí los archivos 
+            del área de staging para que podamos aplicar nuestros últimos cambios pero desde un commit anterior.
+
+            git reset --soft: Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en Staging, 
+            así podemos aplicar las últimas actualizaciones a un nuevo commit.
+            git reset --hard: Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de staging 
+            se borra del historial.
+    
+    ¡Pero todavía falta algo!
+    git reset HEAD: Este es el comando para sacar archivos del área de staging. No para borrarlos ni nada de eso, solo para que 
+    los últimos cambios de estos archivos no se envíen al último commit, a menos que cambiemos de opinión y los incluyamos de nuevo en 
+    staging con git add, por supuesto.
+
+Flujo de trabajo básico con un repositorio remoto:
+    Cuando empiezas a trabajar en un entorno local, el proyecto vive únicamente en tu computadora. Esto significa que no hay forma de 
+    que otros miembros del equipo trabajen en él.
+
+    Para solucionar esto, utilizamos los servidores remotos: un nuevo estado que deben seguir nuestros archivos para conectarse y trabajar 
+    con equipos de cualquier parte del mundo.
+
+    Estos servidores remotos pueden estar alojados en GitHub, GitLab, BitBucket, entre otros. Lo que van a hacer es guardar el mismo 
+    repositorio que tienes en tu computadora y darnos una URL con la que todos podremos acceder a los archivos del proyecto. Así, el equipo 
+    podrá descargarlos, hacer cambios y volverlos a enviar al servidor remoto para que otras personas vean los cambios, comparen sus versiones 
+    y creen nuevas propuestas para el proyecto
+
+    Comandos para trabajo remoto con GIT:
+        git clone url_del_servidor_remoto: Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git.
+        git push: Luego de hacer git add y git commit debemos ejecutar este comando para mandar los cambios al servidor remoto.
+        git fetch: Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan, por supuesto).
+        git merge: También usamos el comando git merge con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo.
+        git pull: Básicamente, git fetch y git merge al mismo tiempo.
+
+        Adicionalmente, tenemos otros comandos que nos sirven para trabajar en proyectos muy grandes:
+
+        git log --oneline:Te muestra el id commit y el título del commit.
+        git log --decorate: Te muestra donde se encuentra el head point en el log.
+        git log --stat: Explica el número de líneas que se cambiaron brevemente.
+        git log -p: Explica el número de líneas que se cambiaron y te muestra que se cambió en el contenido.
+        git shortlog: Indica que commits ha realizado un usuario, mostrando el usuario y el título de sus commits.
+        git log --graph --oneline --decorate y
+        git log --pretty=format:"%cn hizo un commit %h el dia %cd": Muestra mensajes personalizados de los commits.
+        git log -3: Limitamos el número de commits.
+        git log --after=“2018-1-2”
+        git log --after=“today” y
+        git log --after=“2018-1-2” --before=“today”: Commits para localizar por fechas.
+        git log --author=“Name Author”: Commits hechos por autor que cumplan exactamente con el nombre.
+        git log --grep=“INVIE”: Busca los commits que cumplan tal cual está escrito entre las comillas.
+        git log --grep=“INVIE” –i: Busca los commits que cumplan sin importar mayúsculas o minúsculas.
+        git log – index.html: Busca los commits en un archivo en específico.
+        git log -S “Por contenido”: Buscar los commits con el contenido dentro del archivo.
+        git log > log.txt: guardar los logs en un archivo txt
+
+Cómo funcionan las ramas en GIT:
+    Las ramas son la manera de hacer cambios en nuestro proyecto sin afectar el flujo de trabajo de la rama principal. 
+    Esto porque queremos trabajar una parte muy específica de la aplicación o simplemente experimentar.
+
+    git branch -nombre de la rama-: Con este comando se genera una nueva rama.
+    git checkout -nombre de la rama-: Con este comando puedes saltar de una rama a otra.
+    git checkout -b rama: Genera una rama y nos mueve a ella automáticamente, Es decir, es la combinación de git brach 
+    y git checkout al mismo tiempo.
+    git reset id-commit: Nos lleva a cualquier commit no importa la rama, ya que identificamos el id del tag., eliminando 
+    el historial de los commit posteriores al tag seleccionado.
+    git checkout rama-o-id-commit: Nos lleva a cualquier commit sin borrar los commit posteriores al tag seleccionado.
+
+Fusión de ramas con Git merge:
+    El comando git merge nos permite crear un nuevo commit con la combinación de dos ramas o branches 
+    (la rama donde nos encontramos cuando ejecutamos el comando y la rama que indiquemos después del comando).
+
+Resolución de conflictos al hacer un merge:
+    Git nunca borra nada, a menos que nosotros se lo indiquemos. Cuando usamos los comandos git merge o git 
+    checkout estamos cambiando de rama o creando un nuevo commit, no borrando ramas ni commits 
+    (recuerda que puedes borrar commits con git reset y ramas con git branch -d).
+
+    Git es muy inteligente y puede resolver algunos conflictos automáticamente: cambios, nuevas líneas, entre otros. 
+    Pero algunas veces no sabe cómo resolver estas diferencias, por ejemplo, cuando dos ramas diferentes hacen cambios 
+    distintos a una misma línea.
+
+    Esto lo conocemos como conflicto y lo podemos resolver manualmente. Solo debemos hacer el merge, ir a nuestro editor 
+    de código y elegir si queremos quedarnos con alguna de estas dos versiones o algo diferente. Algunos editores de 
+    código como Visual Studio Code nos ayudan a resolver estos conflictos sin necesidad de borrar o escribir líneas de texto, 
+    basta con hacer clic en un botón y guardar el archivo.
+
+    Recuerda que siempre debemos crear un nuevo commit para aplicar los cambios del merge. Si Git puede resolver el conflicto,
+     hará commit automáticamente. Pero, en caso de no pueda resolverlo, debemos solucionarlo y hacer el commit.
+
+    Los archivos con conflictos por el comando git merge entran en un nuevo estado que conocemos como Unmerged. 
+    Funcionan muy parecido a los archivos en estado Unstaged, algo así como un estado intermedio entre Untracked y Unstaged. 
+    Solo debemos ejecutar git add para pasarlos al área de staging y git commit para aplicar los cambios en el repositorio.
+
+    Cómo revertir un merge:
+        Si nos hemos equivocado y queremos cancelar el merge, debemos usar el siguiente comando: git merge --abort
+
+    Conflictos en repositorios remotos:
+        Al trabajar con otras personas, es necesario utilizar un repositorio remoto.
+­
+        -Para copiar el repositorio remoto al directorio de trabajo local, se utiliza el comando git clone <url>, y 
+        para enviar cambios al repositorio remoto se utiliza git push.
+        -Para actualizar el repositorio local se hace uso del comando git fetch, luego se debe fusionar los datos 
+        traídos con los locales usando git merge.
+
+        Para traer los datos y fusionarlos a la vez, en un solo comando, se usa git pull.
+        ­- Para crear commits rápidamente, fusionando git add y git commit -m "", usamos git commit -am "".
+        ­- Para generar nuevas ramas, hay que posicionarse sobre la rama que se desea copiar y utilizar el comando git branch <nombre>.
+        Para saltar entre ramas, se usa el comando git checkout <branch>
+        ­- Una vez realizado los cambios en la rama, estas deben fusionarse con git merge.
+        El merge ocurre en la rama en la que se está posicionado. Por lo tanto, la rama a fusionar se transforma en la principal.
+        Los merges también son commits.
+        Los merges pueden generar conflictos, esto aborta la acción y pide que soluciones el problema manualmente, 
+        aceptando o rechazando los cambios que vienen.

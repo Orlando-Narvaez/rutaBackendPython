@@ -708,3 +708,5 @@ Git Stash: Guardar cambios en memoria y recuperarlos después:
         es necesario agregarlo al Staging Area con git add [nombre_archivo] con la intención de que git tenga un seguimiento 
         de ese archivo, o también utilizando el comando git stash -u (que guardará en el stash los archivos que no estén en el staging).
         Al aplicar un stash este no se elimina, es buena práctica eliminarlo.
+
+Git Clean: limpiar tu proyecto de archivos no deseados:

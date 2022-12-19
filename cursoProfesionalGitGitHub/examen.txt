@@ -1,0 +1,131 @@
+Git funciona para muchos tipos de archivo, ¿Qué tal funciona Git con archivos binarios?
+    Los puede agregar y versionar pero es mejor usar Git con texto plano.
+
+¿La terminal ideal para usar Git en Windows es?
+    Git Bash o una terminal derivada de Linux
+
+¿Qué guarda Git?
+    Los cambios de los archivos de un proyecto.
+
+En un commit, los mensajes del commit son:
+    Importantes y obligatorios.
+
+Los cambios a un archivo que están en “staging” están en:
+    Un área temporal en memoria antes de llegar al repositorio.
+
+¿Qué es un branch o una rama en Git?
+    Un repositorio aparte del master donde puedes trabajar en paralelo.
+
+
+Con checkout puedo:
+    Ver todos los archivos de mi proyecto como los dejé en otras ramas.
+
+
+¿El HEAD en una rama es?
+    El apuntador al estado actual del repositorio basado en la rama en la que estoy trabajando.
+
+¿Cuándo debería hacer un merge?
+    Cuando quiero fusionar los cambios de una rama con otra.
+
+Cuando hay un conflicto entre archivos lo mejor es:
+    Analizar los conflictos tal como los reportó Git y elegir los cambios finales, luego commit.
+
+¿GitHub es?
+    Un sistema online de manejo de repositorios de Git.
+
+Se crean dos archivos cuando creas una llave pública y privada para SSH, ¿cuál es la extensión de la llave privada?
+    Ninguna extensión
+
+Un pull request es:
+    Un cambio sugerido a un repositorio que el dueño del repositorio puede autorizar y hacer merge a la rama que elija.
+
+Cuando hago un fork de un proyecto en GitHub, ¿lo que logro es?
+    Copiar un repositorio público a mis repositorios en GitHub, con todas sus ramas e historia anterior.
+
+Si ya hiciste el desafío de “Hazme un pull request,” ¿dentro de cuál etiqueta tenías que agregar el cambio?
+    <divid="post">
+
+Si en el .gitignore agrego esto: images/*.js. ¿Cuál de los siguientes archivos sería ignorado?
+    images/jquery.js
+
+Cuando usas git stash, los cambios que “guardas” temporalmente se guardan en:
+    Memoria temporal, volviendo al estado del último commit.
+
+¿Cuándo deberías usar cherry-pick?
+    Cuando quiero los cambios de un commit pasado sin dañar la historia de la rama.
+
+¿Con amend puedo?
+    Corregir los mensajes de un commit que hice mal sin que quede en la historia del repositorio.
+
+¿Qué puedes hacer con gitk?
+    Ver en una interfaz visual las ramas y el log de tu repositorio.
+
+Si usas:
+git config --global alias.platzi "shortlog"
+¿Cómo invocar ese comando?
+    git platzi
+
+Es mejor aprender a manejar Git con la terminal antes de hacerlo con herramientas visuales como Gitk porque:
+    Debemos aprender Git con sus comandos de la terminal para resolver problemas o conflictos más avanzados. Gitk funciona bien, 
+    pero no nos permite realizar operaciones tan complejas.
+
+¿Cómo llaman GitHub y GitLab a los "merges" (propuestas de cambios desde otra rama o repositorio)?
+    GitHub los llama Pull Request y GitLab Merge Request.
+
+¿Puedes conectar tu repositorio local con más de un repositorio remoto?
+    Verdadero
+
+¿Las llaves publicas son?
+    Faciles de compartir y sus mensajes imposibles de descifrar 
+
+Para transmitir cambios seguros entre tu repositorio local y GitHub ¿Aue se recomienda?
+    Usar una llave SSH
+
+Para que dos personas trabajen en pararlelo sobre el mismo archivo se recomienda    
+    Una rama independiente por cada persona y sus cambios que luego con verificacion se hace merge a master
+
+El dueño de un repositorio al ver un pull request puede:
+    Editarlo, aceptarlo,darle merge, comentarlo para pedir cambios
+
+Un repositorio remoto y un reposito local:
+    Tienen ramas similares dependiendo de cuales haya enviado entre uno y otro 
+
+¿Para que sirve GitHub pages?
+    Es un servicio de GitHub que nos permite publicar nuestros repositorios en internet (por ejemplo,nombre.github.io o nombre.github.io/proyecto)
+
+Un pull request es:
+    Un cambio sugerido a un repositorio que el dueño del repositorio puede autorizar y hacer merge a la rama que elija
+
+Por defecto, GitHub usa la rama main como la rama principal. ¿Podemos cambiar la rama principal?
+    Verdadero
+
+El jefe Freddy
+    Crear un Fork del proyecto y enviar Pull Request el proyecto original
+
+
+
+Malas:
+    ¿Puedo crear ramas en GitHub que no tenga en mi repositorio local?
+        x No, las ramas solo existen en un repositorio local, no en el remoto.
+        x Si, cuando usas el cliente oficial nada mas
+
+    En un repositorio público en GitHub, ¿qué puede hacer los colaboradores?
+        x Crear ramas y trabajar sobre ellas, pero no sobre master.
+        x Solo hacer pull request y con permiso del dueño hacer push/pull, crear ramas, etc.
+
+    Estás en la rama master y quieres mandar los últimos cambios que guardaste con git stash a la rama retomando-los-cambios (la rama no ha sido creada aún). ¿Cuál de las siguientes soluciones es incorrecta?
+        x git checkout -b retomando-los-cambios, git stash pop
+        x git stash branch retomando-los-cambios
+        x git branch retomando-los-cambios, git checkout retomando-los-cambios, git statsh pop
+
+    ¿Cuál es la diferencia entre git rm y git reset HEAD?
+        x git reset head borra el último commit. git rm también, pero guarda los últimos cambios en Staging
+        x git rm borra todos lo commits y el historial donde aparezcan los archivos. git reset head tambien, pero guarda los ultimos cambios en Staging
+    
+    Un repositorio remoto y un repositorio local
+        x Tienen las mismas ramas dado que uno es un reflejo del otro
+
+    ¿Para que sirve git grep?
+        x Para encontrar las veces que hemos usado una palabra en los archivos de nuestro proyecto, incluyendo los que no
+          viven dentro de Git
+        La buena: Para encontrar las veces que hemos usado una palabra en los archivos del repositorio

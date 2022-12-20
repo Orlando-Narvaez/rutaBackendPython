@@ -9,4 +9,3 @@ myPrint("Hola")
 def suma(a,b):
     myPrint(a+b)
 suma(3,10)
-

@@ -42,7 +42,7 @@ def message_creator(text):
 
 text = "computadora"
 response = message_creator(text)
-print(response)"""
+print(response)
 
 def multiply_numbers(numbers):
     # Escribe tu solución 👇
@@ -51,4 +51,12 @@ def multiply_numbers(numbers):
 
 numbers = [1, 2, 3, 4]
 response = multiply_numbers(numbers)
+print(response)"""
+
+def filter_by_length(words):
+   # Escribe tu solución 👇
+   return list(filter(lambda numLetters: len(numLetters) >= 4, words))
+
+words = ['amor', 'sol', 'piedra', 'día']
+response = filter_by_length(words)
 print(response)

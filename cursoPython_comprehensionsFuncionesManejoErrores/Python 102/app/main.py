@@ -1,24 +1,23 @@
-import utils 
+import utils
+import readCSS
+import charts
 
 def run():
-    keys,values = utils.getPopulation()
-    print(keys,values)
+  data = readCSS.read_csv('./data.csv')
+  """data = list(filter(lambda item : item['Continent'] == 'South America',data))
 
-    data = [
-        {
-            "Country": "Colombia",
-            "Population": 300
-        },
-        {
-            "Country": "Bolivia",
-            "Population": 100
-        }
-    ]
+  countries = list(map(lambda x: x['Country/Territory'], data))
+  percentages = list(map(lambda x: x['World Population Percentage'], data))
+  charts.generateBarChart(countries, percentages)
+  """
+  country = input('Type Country => ')
 
-    country = input("Escribe el pais que desea buscar: ")
+  result = utils.population_by_country(data, country)
 
-    result = utils.populationByCountry(data, country)
-    print(result)
+  if len(result) > 0:
+    country = result[0]
+    labels, values = utils.get_population(country)
+    charts.generateBarChart(labels, values)
 
 if __name__ == '__main__':
-    run()
+  run()

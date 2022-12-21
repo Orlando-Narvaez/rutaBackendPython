@@ -27,7 +27,7 @@ def message_creator(text):
 
 text = 'computadora'
 response = message_creator(text)
-print(response)"""
+print(response)
 
 def message_creator(text):
     # Escribe tu solución 👇
@@ -42,4 +42,13 @@ def message_creator(text):
 
 text = "computadora"
 response = message_creator(text)
+print(response)"""
+
+def multiply_numbers(numbers):
+    # Escribe tu solución 👇
+    result = list(map(lambda number: number * 2, numbers))
+    return result
+
+numbers = [1, 2, 3, 4]
+response = multiply_numbers(numbers)
 print(response)

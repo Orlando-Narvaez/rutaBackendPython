@@ -35,3 +35,6 @@ Clase 1: ¿Qué es la terminal?
 
         NOTA: Para este curso necesitarás estar usando un sistema operativo basado en linux o tener instalado Windows 
         Subsystem for Linux en windows
+
+Clase 2: Instalar WSL - usa Linux dentro de Windows
+    https://platzi.com/clases/2292-terminal/53893-opcional-instalar-wsl-usa-linux-dentro-de-windows/

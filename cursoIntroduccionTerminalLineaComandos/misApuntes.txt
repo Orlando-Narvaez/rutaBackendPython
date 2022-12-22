@@ -40,22 +40,31 @@ Para usar grep sin distinción de mayúsculas o minúsculas usamos:
 ¿Qué comando nos ayuda consultar la disponibilidad de un equipo en una red?
     ping
 
+Para leer el manual de usuario de un comando usamos:
+    man
+
+¿Qué operador nos ayuda a concatenar la salida de un comando a un archivo de texto?
+    >>
+
+El pipe operator redirecciona la salida de un comando a la entrada de otro comando, esto es:
+    Verdadero
+
+Si deseamos condicionar la ejecución de un comando solo si uno anterior se ejecuto de manera exitosa podemos usar:
+    &&
+
+Con el siguiente comando podemos ver la ruta del directorio Home de nuestro usuario:
+    echo $HOME
+
+Para guardar todas nuestras variables de entorno en un archivo de texto podemos ejecutar el comando:
+    env > environment.txt
+
 MALAS:
-    Para leer el manual de usuario de un comando usamos:
-        cat
-
     El file descriptor correspondiente al stderr es:
-        1
-
-
-    ¿Qué operador nos ayuda a concatenar la salida de un comando a un archivo de texto?
-        >
-    
-    Si deseamos condicionar la ejecución de un comando solo si uno anterior se ejecuto de manera exitosa podemos usar:
-        ||
-
-    Con el siguiente comando podemos ver la ruta del directorio Home de nuestro usuario:
-        echo HOME
+        x 1
+        x -1
     
     ¿Qué comando muestra los procesos que consumen más recursos en nuestro sistema?
-        ps
+        x ps
+    
+    Para buscar todas las imágenes png dentro de nuestra computadora podemos ejecutar:
+        x find *.png

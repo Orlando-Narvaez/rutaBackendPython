@@ -1,0 +1,97 @@
+¿Cuál de los siguientes es un principio de The Zen of Python?
+    Plano es mejor que anidado.
+
+¿Cuál de los siguientes es un principio de The Zen of Python?
+    Bello es mejor que feo.
+
+¿Cuál de los siguientes es un Set o Conjunto en Python?
+    python_set = {'Nicolas', 'Miguel', 'Juan'}
+
+Dado el siguiente bloque de código:
+
+names = {'Nicolas', 'Miguel', 'Juan', 'Nicolas'} 
+print(names) 
+¿Cuál será el resultado?
+    {'Nicolas', 'Miguel', 'Juan'}
+
+¿Cuál es la diferencia entre remove y discard al trabajar con Sets o Conjuntos en Python?
+    Si el elemento que eliminamos no existe en el conjunto, remove da error, discard no.
+
+¿Cuál será el resultado del siguiente bloque de código?
+a = {1,2}
+b = {2,3}
+print(a & b)
+    {2}
+
+¿Cuál de las siguientes respuestas con List Comprehension nos peermite obtener el mismo resultad con una sintaxis más corta?
+    n = [i - 1 for i in range(1,6) if i <= 2]
+
+¿Cuál de las siguientes estructuras de datos es mutable?
+    List
+
+¿Cuál es la palabra clave reservada para crear una función en Python?
+    def
+
+¿Cuál es la forma correcta de crear una función en Python?
+    def nombre_func:
+        # …
+
+Dado el siguiente bloque de código:
+def sum(a = 1, b = 0):
+  return a + b
+¿Cómo enviarías únicamente el valor de b para realizar la suma usando el valor por defecto de a?
+    sum(b=5)
+
+La función sum(a,b) retorna 3 elementos: 1) la suma entre a y b; 2) a; y 3) b.
+Debes guardar los 3 elementos retornados en nuevas variables por fuera de la función.
+¿Cómo lo harías?
+    result, a, b = sum(1,2)
+
+Dado el siguiente bloque de código:
+def sum(x, y):
+	return x + y 
+¿Cuál de las siguientes respuestas nos permite obtener el mismo resultado, pero con una sintaxis más corta?
+    sum = lambda x, y : x + y
+
+¿Cuál de las siguientes afirmaciones sobre las funciones lambda es correcta?
+    Todas las respuestas son correctas.
+
+¿Cuál de las siguientes funciones SIEMPRE devuelve un solo valor después de iterar sobre todos los elementos de la lista original?
+    reduce
+
+Dado el siguiente bloque de código:
+original = [1,2,3,4,5] 
+new = []
+for x in n:
+	new.append(x * 2)
+¿Cuál de las siguientes respuestas es la sintaxis más corta para obtener el mismo resultado?
+    new = list(map(lambda x: x * 2, original))
+
+¿La función Map en Python puede procesar dos listas al mismo tiempo?
+    Sí, pero solo iterará en ambas listas hasta la cantidad de elementos de la lista más pequeña.
+
+¿Cuál de los siguientes bloques de código provoca un error en Python?
+    Todas las respuestas arrojan un error.
+
+¿Cuál es la forma correcta de generar una lista usando comprensión de listas en Python?
+    characters = [character for character in 'Platzi']
+
+
+Malas:
+    ¿Cuál de las siguientes estructuras de datos nos permite ordenar sus elementos?
+        Set
+    
+    ¿Cuál estructura de datos usa Python para retornar varios valores en una función?
+        Set
+    
+    ¿Cuál de las siguientes funciones SIEMPRE devuelve la misma cantidad de elementos de la lista original?
+        x filter
+        map
+
+    ¿Cuál es la principal característica de una función Lambda o anónima?
+        x Que necesitan un tipo de dato especial para ser utilizadas.
+        
+        ¿Que es lambda?
+        Son conocidas como Funciones Anónimas o lambdas, en donde no tienen un identificador 
+        o no tienen un nombre, se puede definir su estructura de la siguiente manera: lambda argumentos: expresión, 
+        las funciones lambda pueden tener los argumentos que se requieran pero solo una linea de código o una expresión.

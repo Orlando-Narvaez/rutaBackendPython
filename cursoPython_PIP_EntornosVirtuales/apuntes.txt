@@ -1,0 +1,9 @@
+PIP:
+    El Python Package Index o PyPI es el repositorio de software oficial
+     para aplicaciones de terceros en el lenguaje de programación Python. 
+     Los desarrolladores de Python pretenden que sea un catálogo exhaustivo 
+     de todos los paquetes de Python escritos en código abierto​PyPI es análogo 
+     a CPAN para Perl, o PEAR para PHP
+
+pip3 freeze:
+    Para ver el arbol de librerias instaladas en pip3

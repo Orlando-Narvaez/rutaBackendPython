@@ -14,5 +14,5 @@ def generatePieChart(labels,values): #Grafica de pastel
 if __name__  == "__main__":
     labels = ["a", "b", "c"]
     values = [100, 200, 80]
-    #generateBarChart(labels,values)
+    generateBarChart(labels,values)
     generatePieChart(labels,values)

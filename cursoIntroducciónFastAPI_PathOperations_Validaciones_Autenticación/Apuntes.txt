@@ -1,0 +1,14 @@
+¿Qué es FastAPI?
+    Es un framework moderno y de alto rendimiento para creación de API con Python
+
+Características
+    Rápido
+    Menos errores
+    Fácil e intuitivo
+    Robusto
+    Basado en estándares
+
+Marco utilizado por FastAPI
+    Starlette: Framework asíncrono para la construcción de servicios y es uno de los más rápidos de Python
+    Pydantic: Encargado de la validación de datos.
+    Uvicorn
